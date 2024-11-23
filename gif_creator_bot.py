@@ -14,6 +14,11 @@ client = TelegramClient('sticker-creator-bot', api_id, api_hash).start(bot_token
 async def sticker_creator(event):
     given_text = event.message.text
     if given_text is None or given_text == "/start": return
+
+    if len(given_text) > 1024:
+        await event.reply("the given text is too long. 1024 is the current maximum")
+        return
+
     output_gif_path = uuid.uuid4().hex + ".gif"
     create_text_gif(text=given_text,
                     output_gif_path=output_gif_path,
