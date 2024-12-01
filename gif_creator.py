@@ -43,6 +43,6 @@ def create_text_gif(text, output_gif_path, size=1000, bg_color=(255, 255, 255),
 
     # Save frames as an animated GIF
     frames[0].save(output_gif_path, save_all=True, append_images=frames[1:],
-                   duration=duration, loop=0, optimize=True, quality=100)
+                   duration=duration, loop=0, optimize=False, quality=100)
     print(f"GIF saved to {output_gif_path}")
     return output_gif_path
